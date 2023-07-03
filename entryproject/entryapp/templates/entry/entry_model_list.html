@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block title %}学習ノートアプリ一覧{% endblock title %}
+
+{% block content %}
+<div class="list-group">
+     {% for entry in object_list %} <!-- 「object_list」にはEntryModelテーブルに入っている各レコード（行）が入る -->
+     <ul>
+         <li>
+             <a href="{% url 'detail_entry' entry.pk %}" class="list-group-item list-group-item-action">{{ entry.title }}</a>
+         </li>
+     </ul>
+     {% endfor %}
+ </div>
+ <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+{% endblock content %}
